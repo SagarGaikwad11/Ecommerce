@@ -2,62 +2,32 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-class ProductNew extends Component {
-
-  
+export default class ProductNew extends Component {
 
   constructor(props) {
     super(props)
     this.state = {
-       productData: [],
+      productData: [],
     }
- }
+  }
 
-async pdata()
-{
-    await axios.get(`http://localhost:5500/product/getAllProduct`)
-      .then(response => {
-        const product = response.data;
-        console.log(product[0].name)
-        this.setState({
-          productData:product
-        })
-
-       
-       
-      })
-}
 
   componentDidMount() {
 
-    this.pdata()
-
-    // axios.get(`http://localhost:5500/product/getAllProduct`)
-    //   .then(response => {
-    //     const product = response.data;
-    //     console.log(product[0].name)
-    //     this.setState({
-    //       productData:product
-    //     })
-
-        console.log(this.state.productData);
-       
-    //   })
-
-      
+    axios.get(`http://localhost:5500/product/getAllProduct`)
+      .then(response => {
+        const product = response.data;
+        this.setState({productData:product});
+      });
   }
 
 
   render() {
     return (
       <div>
-
-        {/* {
-         
-          this.state.productData.map(element => {
-            return <h1>{element[0].name}</h1>
-          })
-        } */}
+        {this.state.productData.map(ele => {
+            return <h1>{ele.name}</h1>
+          })}
         <div className="row">
           <div className="col-sm-4 " style={{ background: "white" }}>
             <div
@@ -188,7 +158,7 @@ async pdata()
                   /><br />
                   <div className="card-body">
                     <h4 className="card-title text-info">
-                    Daniel Klein Daniel Klein ZING
+                      Daniel Klein Daniel Klein ZING
                       <br /> <span>Smartwatch Full Touch With 1.65" IPS Color Display-DSM.90003-1</span>
                     </h4>
                     <h3 className="card-title">₹1,690 </h3>
@@ -216,11 +186,11 @@ async pdata()
                   />
                   <div className="card-body">
                     <h4 className="card-title text-info">
-                    Fire-Boltt Ninja Calling Pro
+                      Fire-Boltt Ninja Calling Pro
                       <br /> <span>Bluetooth Calling Smartwatch 1.69 inch HD Display Smartwatch </span>
                     </h4>
                     <h3 className="card-title">₹2,499 </h3>
-                   
+
 
                     <button className="btn btn-warning" >
                       Add to Card
@@ -246,7 +216,7 @@ async pdata()
                   /><br /><br /><br />
                   <div className="card-body">
                     <h4 className="card-title text-info">
-                    Daniel Klein
+                      Daniel Klein
                       <br /> <span>Full Touch With 1.3" IPS Color Display- DSM.90001-2</span>
                     </h4>
                     <h3 className="card-title">₹1,690 </h3>
@@ -264,5 +234,3 @@ async pdata()
     );
   }
 }
-
-export default ProductNew;
