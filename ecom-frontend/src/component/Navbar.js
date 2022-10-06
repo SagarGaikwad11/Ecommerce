@@ -9,7 +9,7 @@ export default function Navbar() {
       <div className="container-fluid">
         <div className="navbar-header">
           <a className="navbar-brand" href="/">
-            E-Digi-SHopee
+            E-Digital World
           </a>
         </div>
         <ul className="nav navbar-nav">
@@ -31,7 +31,7 @@ export default function Navbar() {
                 <a href="/">Careers</a>
               </li>
               <li>
-                <a href="/">Gallary</a>
+                <a href="/">Add Product</a>
               </li>
             </ul>
           </li>
